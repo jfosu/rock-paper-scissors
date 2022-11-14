@@ -136,7 +136,7 @@ body {
     transition: opacity 0.4s ease;
 }
 
-.choice-btn:focus .choice::after {
+.choice-btn:hover .choice::after {
     opacity: 1;
     box-shadow: 0 0 0 2rem #223351;
     z-index: -2;
@@ -256,7 +256,9 @@ body {
 .paly-again:focus {
     border: 2px solid var(--outline);
 }
-
+.play-again:hover {
+    color: var(--rock-1);
+}
 
 /* Rules Button */
 .rules-btn {
@@ -274,6 +276,11 @@ body {
     font-size: 1.3rem;
     letter-spacing: 0.1em;
     cursor: pointer;
+}
+.rules-btn:hover {
+    background-color: #fff;
+    color: hsl(229, 25%, 31%);
+    border: none;
 }
 
 .rules-btn:focus {
