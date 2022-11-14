@@ -13,7 +13,7 @@
 
 
 </head>
-<body>
+<body class="preload">
   <div class="container">
     <header class="header">
       <img class="logo" src="./images/logo.svg" alt="logo">
@@ -25,21 +25,28 @@
     <section class="game">
       <button class="choice-btn" data-choice="paper">
         <div class="choice paper">
-          <img src="./images/icon-paper.svg" alt="Paper">
+          <img src="./images/icon-paper.svg" alt="Paper" />
         </div>
       </button>
       <button class="choice-btn" data-choice="scissors">
         <div class="choice scissors">
-          <img src="./images/icon-scissors.svg" alt="Scissors">
+          <img src="./images/icon-scissors.svg" alt="Scissors" />
         </div>
       </button>
       <button class="choice-btn" data-choice="rock">
         <div class="choice rock">
-          <img src="./images/icon-rock.svg" alt="Rock">
+          <img src="./images/icon-rock.svg" alt="Rock" />
         </div>
       </button>
     </section>
   </div>
+
+  <section class="results hidden">
+    <h2 class="results__heading">you picked</h2>
+    <h2 class="results__heading">the house picked</h2>
+    <div class="results__result"></div>
+    <div class="results__result"></div>
+  </section>
 
   <button class="rules-btn" tabindex="1">rules</button>
   <div class="modal">
