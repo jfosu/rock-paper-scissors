@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
   
@@ -51,17 +52,21 @@
     </div>
     <div class="results__result"></div>
   </section>
-
-  <button class="rules-btn" tabindex="2">rules</button>
+  <footer class="footer">
+    <button class="rules-btn" tabindex="2">rules</button>
+    <i class="fa-solid fa-rotate-right fa-2x"></i>
+  </footer>
+  
   <div class="modal">
     <div class="modal__container">
       <header class="modal__header">
-        <h2 class="modal__heading">rules</h2>
-        <button class="close-btn">
-          <img src="./images/icon-close.svg" alt="Close Button">
-        </button>
+        <h2 class="modal__heading" data-pos="rules">rules</h2>
       </header>
-      <img src="./images/image-rules.svg" alt="Rules Image" class="rules-img">
+      <button class="close-btn" data-pos="rulesClose">
+        <img src="./images/icon-close.svg" alt="Close Button">
+      </button>
+      
+      <img src="./images/image-rules.svg" alt="Rules Image" class="rules-img" data-pos="ruleImage">
     </div>
   </div>
 
