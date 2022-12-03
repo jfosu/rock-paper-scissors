@@ -7,6 +7,7 @@ setTimeout(() => {
 const btnRules = document.querySelector('.rules-btn')
 const btnClose = document.querySelector('.close-btn')
 const modalRules = document.querySelector('.modal')
+const resetGame = document.querySelector('.fa-solid')
 
 const CHOICES = [
     {
@@ -129,3 +130,17 @@ btnRules.addEventListener('click', () => {
 btnClose.addEventListener('click', () => {
     modalRules.classList.toggle('show-modal');
 });
+
+resetGame.addEventListener('click', () => {
+    gameDiv.classList.toggle('hidden')
+    resultsDiv.classList.toggle('hidden')
+
+    resultDivs.forEach(resultDiv => {
+        resultDiv.innerHTML = ""
+        resultDiv.classList.remove('winner')
+    })
+    resultText.innerText = ""
+    resultwinner.classList.toggle('hidden')
+    resultsDiv.classList.toggle('show-winner')
+
+})
