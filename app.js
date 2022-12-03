@@ -40,6 +40,7 @@ choiceButtons.forEach(button => {
         const choiceName = button.dataset.choice;
         const choice = CHOICES.find(choice => choice.name === choiceName)
         choose(choice)
+        console.log(choice)
         
     })
 })
@@ -49,10 +50,10 @@ function choose(choice) {
     displayResults([choice, aichoice]);
     displayWinner([choice, aichoice]);
 }
-
 function aiChoose() {
     const rand = Math.floor(Math.random() * CHOICES.length)
     return CHOICES[rand]
+    
 }
 
 function displayResults(results) {
@@ -69,6 +70,8 @@ function displayResults(results) {
 
     gameDiv.classList.toggle('hidden')
     resultsDiv.classList.toggle('hidden')
+    console.log(results)
+
 }
 
 function displayWinner(results) {
@@ -96,7 +99,9 @@ function displayWinner(results) {
 
 function isWinner(results) {
     return results[0].beats === results[1].name;
+    
 }
+
 
 function keepScore(point) {
     score += point
