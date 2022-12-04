@@ -133,6 +133,7 @@ body {
     height: 130%;
     border-radius: 50%;
     z-index: -1;
+    
 }
 
 .choice::after {
@@ -143,7 +144,6 @@ body {
 .choice-btn:hover .choice::after {
     opacity: 1;
     box-shadow: 0 0 0 2rem #223351;
-    z-index: -2;
 }
 
 .choice img {
@@ -222,16 +222,9 @@ body {
 
 .winner .choice::after {
     box-shadow: 0 0 0 40px #293251, 0 0 0 80px #232c4d, 0 0 0 130px #1e2949;
-    animation: winner 1s ease forwards;
+    opacity: 1;
 }
-@keyframes winner {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+
 
 .results__winner {
     grid-area: result-winner;
@@ -397,6 +390,9 @@ body {
 
 /* Mobile */
 @media(max-width: 768px) {
+    .container {
+        max-width: 300px;
+    }
     
     .header {
         display: flex;
@@ -441,7 +437,7 @@ body {
         color: var(--dark-text);
     }
 
-    .game {
+    /*.game {
         
         position: relative;
         display: grid;
@@ -450,7 +446,7 @@ body {
             "paper scissors"
             "rock rock";
         place-items: center;
-        height: 30rem;
+        height: 20rem;
         padding-top: 4rem;
     }
 
@@ -459,14 +455,14 @@ body {
         position: absolute;
         width: 100%;
         height: 100%;
-        left: 12%;
+        left: 27%;
         top: 30%;
         background: url(./images/bg-triangle.svg) no-repeat;
-        background-size: 300px;
+        background-size: 200px;
         z-index: -1;
-    }
+    }*/
 
-    .choice {
+    /*.choice {
         position: relative;
         width: 7rem;
         height: 7rem;
@@ -501,7 +497,7 @@ body {
     }
     .choice.rock::before {
         box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--rock-2);
-    }
+    }*/
 
     /* Rules */
     .footer {
@@ -553,6 +549,57 @@ body {
     .modal__heading {
         font-size: 40px;
     }
+
+    .results {
+        margin-top: 1px;
+        grid-template-areas: 
+        "you-title ai-title"
+        "you-picked ai-picked";
+        max-width: 380px;
+    }
+    
+    .results__heading {
+        font-size: 0.8rem;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .results__result {
+        min-width: 8rem;
+        min-height: 8rem;
+        background: #111c38;
+        border-radius: 50%;
+        transform: scale(0.8);
+        z-index: -1;
+    }
+    
+    .results__heading:first-of-type {
+        grid-area: you-title;
+    }
+    .results__heading:last-of-type {
+        grid-area: ai-title;
+    }
+    .results__result:first-of-type {
+        grid-area: you-picked;
+    }
+    .results__result:last-of-type {
+        grid-area: ai-picked;
+    }
+
+    .results.show-winner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-template-areas: 
+            "you-title ai-title"
+            "you-picked ai-picked"
+            "result-winner result-winner";
+
+    }
+
+    .results__winner {
+        padding-top: 120px;
+    }
+    
 
 
 }
