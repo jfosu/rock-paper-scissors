@@ -9,6 +9,13 @@ const btnClose = document.querySelector('.close-btn')
 const modalRules = document.querySelector('.modal')
 const resetGame = document.querySelector('.fa-solid')
 
+// EVENT LISTENER
+document.addEventListener('DOMContentLoaded', getCurrentScore);
+resetGame.addEventListener('click', () => {
+    scoreNumber.innerText = score
+    localStorage.clear()
+})
+
 const CHOICES = [
     {
         name: "paper",
@@ -107,6 +114,8 @@ function isWinner(results) {
 function keepScore(point) {
     score += point
     scoreNumber.innerText = score
+    //ADD SCORECARD TO LOCALSTORAGE
+    saveLocalScore(score)
 }
 
 // Play Again
@@ -131,7 +140,7 @@ btnClose.addEventListener('click', () => {
     modalRules.classList.toggle('show-modal');
 });
 
-resetGame.addEventListener('click', () => {
+/*resetGame.addEventListener('click', () => {
     gameDiv.classList.toggle('hidden')
     resultsDiv.classList.toggle('hidden')
 
@@ -143,4 +152,31 @@ resetGame.addEventListener('click', () => {
     resultwinner.classList.toggle('hidden')
     resultsDiv.classList.toggle('show-winner')
 
-})
+})*/
+
+function saveLocalScore(scoreCard) {
+    //CHECK---HEY Do I already have things in there?
+    let marks;
+    if (localStorage.getItem('numbers') === null) {
+        marks = []
+    } else {
+        marks = JSON.parse(localStorage.getItem('numbers'));
+    }
+
+    marks.push(scoreCard);
+    localStorage.setItem('numbers', JSON.stringify(marks))
+}
+
+function getCurrentScore() {
+    //CHECK---HEY Do I already have things in there?
+    let marks;
+    if (localStorage.getItem('numbers') === null) {
+        marks = []
+    } else {
+        marks = JSON.parse(localStorage.getItem('numbers'));
+    }
+    for (let i = 0; i < marks.length; i++) {
+        scoreNumber.innerText = marks[i] 
+    }
+
+}
