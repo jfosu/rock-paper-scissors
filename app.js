@@ -7,15 +7,7 @@ setTimeout(() => {
 const btnRules = document.querySelector('.rules-btn')
 const btnClose = document.querySelector('.close-btn')
 const modalRules = document.querySelector('.modal')
-const resetGame = document.querySelector('.resetGame')
-
-// EVENT LISTENER
-document.addEventListener('DOMContentLoaded', getCurrentScore);
-resetGame.addEventListener('click', () => {
-    localStorage.clear()
-    score = 0
-    scoreNumber.innerText = 0
-})
+const resetGame = document.querySelector('.fa-solid')
 
 const CHOICES = [
     {
@@ -41,7 +33,7 @@ const resultText = document.querySelector('.results__text');
 const playAgainBtn = document.querySelector('.play-again');
 
 const scoreNumber = document.querySelector('.score__number')
-let score = parseInt(localStorage.getItem('numbers')) || 0;
+let score = 0;
 
 // Game Logic
 choiceButtons.forEach(button => {
@@ -115,8 +107,6 @@ function isWinner(results) {
 function keepScore(point) {
     score += point
     scoreNumber.innerText = score
-    //ADD SCORECARD TO LOCALSTORAGE
-    saveLocalScore(score)
 }
 
 // Play Again
@@ -141,29 +131,16 @@ btnClose.addEventListener('click', () => {
     modalRules.classList.toggle('show-modal');
 });
 
+resetGame.addEventListener('click', () => {
+    gameDiv.classList.toggle('hidden')
+    resultsDiv.classList.toggle('hidden')
 
+    resultDivs.forEach(resultDiv => {
+        resultDiv.innerHTML = ""
+        resultDiv.classList.remove('winner')
+    })
+    resultText.innerText = ""
+    resultwinner.classList.toggle('hidden')
+    resultsDiv.classList.toggle('show-winner')
 
-function saveLocalScore(scoreCard) {
-    //CHECK---HEY Do I already have things in there?
-    let marks;
-    if (localStorage.getItem('numbers') === null) {
-        marks = 0
-    } else {
-        marks = JSON.parse(localStorage.getItem('numbers'));
-    }
-
-    marks = scoreCard;
-    localStorage.setItem('numbers', JSON.stringify(marks))
-}
-
-function getCurrentScore() {
-    //CHECK---HEY Do I already have things in there?
-    let marks;
-    if (localStorage.getItem('numbers') === null) {
-        marks = 0
-    } else {
-        marks = JSON.parse(localStorage.getItem('numbers'));
-    }
-    scoreNumber.innerText = marks
-
-}
+})

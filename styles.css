@@ -292,16 +292,22 @@ body {
     outline: none;
 }
 
-.resetGame {
-    background: #fff;
-    border-radius: 0.6rem;
-    color: #111c38;
-    padding: 0.6rem 1rem;
-    font-family: inherit;
-    text-transform: inherit;
-    font-size: 1rem;
-    
+.fa-solid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    color: #fff;
+    border-radius: 50%;
     cursor: pointer;
+}
+
+
+.fa-solid:hover {
+    background: #fff;
+    color: #111c38;;
 }
 
 .modal {
@@ -498,11 +504,8 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
     }
     .rules-btn {
-        margin-top: -30px;
-        margin-bottom: 20px;
         order: -1;
     }
 
