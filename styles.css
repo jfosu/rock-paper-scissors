@@ -300,8 +300,12 @@ body {
     font-family: inherit;
     text-transform: inherit;
     font-size: 1rem;
-    
     cursor: pointer;
+}
+.resetGame:hover {
+    background: #111c38;
+    color: #fff;
+    border: 1px solid #fff;
 }
 
 .modal {
