@@ -182,7 +182,9 @@ body {
         "you-title ai-title"
         "you-picked ai-picked";
     max-width: 1000px;
-    margin: 0 auto;
+    margin-bottom: 100px;
+
+
 }
 
 .results__heading {
@@ -259,7 +261,6 @@ body {
 
 /* Rules Button */
 .footer {
-    margin-top: 120px;
     padding: 0 30px;
     display: flex;
     align-items: center;
@@ -434,18 +435,9 @@ body {
         color: var(--dark-text);
     }
 
-    /*.game {
-        
-        position: relative;
-        display: grid;
-        grid-template-columns: (repeat(2, 1fr));
-        grid-template-areas: 
-            "paper scissors"
-            "rock rock";
-        place-items: center;
-        height: 20rem;
-        padding-top: 4rem;
-    }*/
+    .game { 
+        margin-bottom: 150px;
+    }
 
     .game::before {
         content: '';
@@ -509,24 +501,24 @@ body {
         margin-bottom: 20px;
         order: -1;
     }
-
     .modal {
+        position: absolute;
         height: 100%;
         width: 100%;
-        background: #fff;
     }
 
+
     .modal__container {
+        height: 100%;
+        width: 100%;
+        position: relative;
         display: grid;
-        position: absolute;
         grid-template-columns: 1fr;
         grid-template-areas: 
             "rules"
             "ruleImage"
             "rulesClose";
         place-items: center;
-        height: 100%;
-        width: 100%;
         border-radius: 0;
     }
 
@@ -542,12 +534,27 @@ body {
     .modal__heading {
         font-size: 40px;
     }
+    .modal__header {
+        position: absolute;
+        top: 90px;
+        left: 120px;
+    }
+    .close-btn {
+        position: absolute;
+        bottom: 80px;
+        left: 160px;
+    }
+    .rules-img {
+        position: absolute;
+        left: 10px;
+    }
 
     .results {
         grid-template-areas: 
         "you-title ai-title"
         "you-picked ai-picked";
         max-width: 380px;
+        margin: 0 auto;
     }
     
     .results__heading {
@@ -583,6 +590,7 @@ body {
             "you-title ai-title"
             "you-picked ai-picked"
             "result-winner result-winner";
+        margin-bottom: 100px;
 
     }
 
