@@ -41,7 +41,7 @@ const resultText = document.querySelector('.results__text');
 const playAgainBtn = document.querySelector('.play-again');
 
 const scoreNumber = document.querySelector('.score__number')
-let score = parseInt(localStorage.getItem('numbers')) || 0;
+let score = 0;
 
 // Game Logic
 choiceButtons.forEach(button => {
@@ -116,7 +116,7 @@ function keepScore(point) {
     score += point
     scoreNumber.innerText = score
     //ADD SCORECARD TO LOCALSTORAGE
-    saveLocalScore(score)
+    saveLocalScore()
 }
 
 // Play Again
@@ -143,27 +143,14 @@ btnClose.addEventListener('click', () => {
 
 
 
-function saveLocalScore(scoreCard) {
+function saveLocalScore() {
     //CHECK---HEY Do I already have things in there?
-    let marks;
-    if (localStorage.getItem('numbers') === null) {
-        marks = 0
-    } else {
-        marks = JSON.parse(localStorage.getItem('numbers'));
-    }
-
-    marks = scoreCard;
-    localStorage.setItem('numbers', JSON.stringify(marks))
+    localStorage.setItem('scorePoints', JSON.stringify(score))
 }
 
 function getCurrentScore() {
     //CHECK---HEY Do I already have things in there?
-    let marks;
-    if (localStorage.getItem('numbers') === null) {
-        marks = 0
-    } else {
-        marks = JSON.parse(localStorage.getItem('numbers'));
-    }
-    scoreNumber.innerText = marks
+    score = JSON.parse(localStorage.getItem('scorePoints'));
+    scoreNumber.innerText = score
 
 }
